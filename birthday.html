@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday My Love ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+.container{
+background:white;
+padding:25px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 40px rgba(0,0,0,0.2);
+width:90%;
+max-width:420px;
+z-index:2;
+max-height:90vh;
+overflow-y:auto;
+}
+
+h2{
+font-family:'Dancing Script',cursive;
+color:#ff1e4d;
+font-size:32px;
+margin-bottom:10px;
+}
+
+input{
+padding:12px;
+width:80%;
+border-radius:8px;
+border:1px solid #ccc;
+margin-top:10px;
+font-size:16px;
+}
+
+button{
+margin-top:12px;
+padding:12px 20px;
+border:none;
+background:#ff4d6d;
+color:white;
+border-radius:10px;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+background:#ff1e4d;
+}
+
+#main{
+display:none;
+}
+
+img{
+width:100%;
+max-width:260px;
+border-radius:15px;
+margin-top:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.message{
+margin-top:18px;
+font-size:16px;
+line-height:1.8;
+text-align:left;
+color:#444;
+}
+
+.message p{
+margin-bottom:15px;
+}
+
+.highlight{
+color:#ff1e4d;
+font-weight:600;
+}
+
+.counter{
+margin-top:20px;
+font-weight:bold;
+font-size:18px;
+color:#ff1e4d;
+text-align:center;
+}
+
+.heart{
+position:absolute;
+color:#ff4d6d;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);opacity:1;}
+100%{transform:translateY(-10vh);opacity:0;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="lock">
+<h2>🎁 Birthday Surprise</h2>
+<p>Enter the secret password</p>
+
+<input type="password" id="pass" placeholder="Password">
+<br>
+<button onclick="unlock()">Open Your Gift</button>
+</div>
+
+<div id="main">
+
+<h2>🎂 Happy Birthday Mera Bachha ❤️</h2>
+
+<img src="src/photo.jpg" alt="Our Photo">
+
+<div class="message">
+
+<p>Aaj ka din mere liye bahut special hai, kyunki aaj uss insaan ka birthday hai jo mere liye sabse jyada important hai.</p>
+
+<p class="highlight">Happy Birthday meri jaan. Tum meri life ka sabse pyara hissa ho.</p>
+
+<p>Mujhe tumhari smile bahut pasand hai. Jab tum haste ho aur tumhare aage ke pyare se daant dikhte hain na, sach bolu toh dil ko bahut sukoon milta hai. Us moment mein lagta hai jaise duniya ki saari tension khatam ho gayi.</p>
+
+<p>
+I love the way you smile ❤️<br>
+I love your hairs ❤️<br>
+I love your eyes ❤️<br>
+I love your cute little feets ❤️<br>
+I love everything about you ❤️
+</p>
+
+<p>Tumhari har choti choti baat mujhe special lagti hai. Tumhari awaaz, tumhari hasi, tumhara gussa bhi kabhi kabhi cute lagta hai.</p>
+
+<p>Main bas itna chahta hoon ki tum hamesha khush raho, hamesha smile karo, aur main hamesha tumhare saath rahun tumhe smile karane ke liye.</p>
+
+<p class="highlight">Happy Birthday once again meri jaan ❤️</p>
+
+<p class="highlight">I love you so much ❤️</p>
+
+</div>
+
+<div class="counter" id="timer"></div>
+
+<audio id="loveMusic" loop>
+<source src="src/Music.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+</div>
+
+<script>
+
+function unlock(){
+let password=document.getElementById("pass").value;
+
+if(password==="0611"){
+document.getElementById("lock").style.display="none";
+document.getElementById("main").style.display="block";
+
+document.getElementById("loveMusic").play();
+
+}else{
+alert("Wrong password 😜 Try again!");
+}
+}
+
+let startDate=new Date("2021-11-06 00:00:00").getTime();
+
+setInterval(function(){
+
+let now=new Date().getTime();
+let diff=now-startDate;
+
+let days=Math.floor(diff/(1000*60*60*24));
+let hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+let minutes=Math.floor((diff%(1000*60*60))/(1000*60));
+let seconds=Math.floor((diff%(1000*60))/1000);
+
+document.getElementById("timer").innerHTML =
+"We have been together for 💞<br>" +
+days+" days "+
+hours+" hours "+
+minutes+" minutes "+
+seconds+" seconds";
+
+},1000);
+
+function createHeart(){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+10)+"px";
+heart.style.animationDuration=(Math.random()*3+3)+"s";
+document.body.appendChild(heart);
+
+setTimeout(function(){
+heart.remove();
+},6000);
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
